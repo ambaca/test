@@ -1,0 +1,7 @@
+"sprite"
+{
+	"$basetexture" "decals/my_ad3"
+	"$translucent" "1"
+	//"$spriteorientation" "oriented"
+	"$spriteorientation" "vp_parallel_oriented"
+}

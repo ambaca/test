@@ -1,0 +1,6 @@
+"sprite"
+{
+	"$basetexture" "decals/my_ad2"
+	"$translucent" "1"
+	"$spriteorientation" "oriented"
+}

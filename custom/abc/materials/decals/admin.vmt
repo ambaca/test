@@ -1,0 +1,7 @@
+"sprite"
+{
+	"$basetexture" "decals/admin"
+	"$translucent" "1"
+	"$spriteorientation" "oriented"
+	"$spriteorigin" "[ 0.5 0.0 ]"
+}

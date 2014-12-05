@@ -2,17 +2,17 @@
 new Handle:g_hDatabase;
 new Handle:g_hStatement;
 new Handle:OnlineTimer;
-new Handle:cvar;
+new Handle:cvar_kick;
 
 public OnPluginStart()
 {
-	cvar = CreateConVar("sm_membersonly_kick_msg", "Members only!", "Kick message for non-members", FCVAR_PLUGIN);
+	cvar_kick = CreateConVar("sm_membersonly_kick_msg", "Members only!", "Kick message for non-members", FCVAR_PLUGIN);
 }
 
 public OnClientPostAdminCheck(client)
 {
 	// skip bots and admins who ahve access to admin menu
-	if(IsFakeClient(client) || CheckCommandAccess(client, "sm_admin", ADMFLAG_GENERIC))
+	if(IsFakeClient(client) || CheckCommandAccess(client, "sm_membersonly_immunity", ADMFLAG_ROOT))
 	{
 		return;
 	}
@@ -66,8 +66,10 @@ public OnClientPostAdminCheck(client)
 	if(!SQL_GetRowCount(g_hStatement))
 	{
 		new String:msg[256];
-		GetConVarString(cvar, msg, sizeof(msg));
+		GetConVarString(cvar_kick, msg, sizeof(msg));
 		KickClient(client, " \n %s \n ", msg);
+		LogAction("Nonmember %L tried to join in server", client);
+		PrintToChatAll("[SM] Nonmember %N (%s) tried to join in server", client, auth);
 	}
 }
 

@@ -1,0 +1,10 @@
+"sprite"
+{
+	"$basetexture" "decals/my_ad"
+	"$translucent" "1"
+	"$spriteorientation" "oriented"
+
+	//"$spriteorientation" "vp_parallel_oriented"
+	//"$spriteorientation" "parallel_upright"
+	//"$spriteorientation" "vp_parallel"
+}
