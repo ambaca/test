@@ -1,0 +1,240 @@
+
+
+<KeyWord name="ClearTrie" func="yes">
+	<Overload retVal="" descr="
+Params:
+    trie    Trie Handle.
+
+Return:
+    noreturn
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Clears all entries from a Trie.
+">
+		<Param name="Handle:trie"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="CreateTrie" func="yes">
+	<Overload retVal="Handle:" descr="
+Return:
+    New Trie Handle, which must be freed via CloseHandle().
+
+Notes:
+    Creates a Trie structure.  A trie is a data storage object that maps any value to a
+    string of text.  It features very fast lookup and deletion, but grows very slow for
+    insertion once tens of thousands of items are added.
+
+    Keys in Tries are unique.  That is, each key may only have one value.  Unlike arrays,
+    Tries cannot be iterated right now.  Since the contents are known to be unique, to
+    work around this, you can use ADT Arrays to store a list of keys known to be in a
+    Trie.
+">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetTrieArray" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    trie        Trie Handle.
+    key         Key string.
+    array       Buffer to store array.
+    max_size    Maximum size of array buffer.
+    size        Optional parameter to store the number of elements
+                written to the buffer.
+
+Return:
+    True    on success.
+    False   if the key is not set,
+            or the key is set as a value or string (not an array).
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Retrieves an array in a Trie.
+">
+		<Param name="Handle:trie"/>
+		<Param name="const String:key[]"/>
+		<Param name="any:array[]"/>
+		<Param name="max_size"/>
+		<Param name="&size=0"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetTrieSize" func="yes">
+	<Overload retVal="" descr="
+Params:
+    trie        Trie Handle.
+
+Return:
+    Number of elements in the trie.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Retrieves the number of elements in a trie.
+
+    Note that trie items are not enumerable/iteratable.  If you need to
+    retrieve the elements in a trie, store its keys in an ADT Array.
+">
+		<Param name="Handle:trie"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetTrieString" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    trie        Trie Handle.
+    key         Key string.
+    value       Buffer to store value.
+    max_size    Maximum size of string buffer.
+    size        Optional parameter to store the number
+                of bytes written to the buffer.
+
+Return:
+    True    on success.
+    False   if the key is not set,
+            or the key is set as a value or array (not a string).
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Retrieves a string in a Trie.
+">
+		<Param name="Handle:trie"/>
+		<Param name="const String:key[]"/>
+		<Param name="String:value[]"/>
+		<Param name="max_size"/>
+		<Param name="&size=0"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetTrieValue" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    trie    Trie Handle.
+    key     Key string.
+    value   Variable to store value.
+
+Return:
+    True    on success.
+    False   if the key is not set,
+    or the key is set as an array or string (not a value).
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Retrieves a value in a Trie.
+">
+		<Param name="Handle:trie"/>
+		<Param name="const String:key[]"/>
+		<Param name="&any:value"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="RemoveFromTrie" func="yes">
+	<Overload retVal="" descr="
+Params:
+    trie    Trie Handle.
+    key     Key string.
+
+Return:
+    True    on success,
+    false   if the value was never set.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Removes a key entry from a Trie.
+">
+		<Param name="Handle:trie"/>
+		<Param name="const String:key[]"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="SetTrieArray" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    trie        Trie Handle.
+    key         Key string.
+    array       Array to store.
+    num_items   Number of items in the array.
+    replace     If false, operation will fail if the key is already set.
+
+Return:
+    True    on success,
+    false   on failure.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Sets an array value in a Trie, either inserting a new entry or replacing an old one.
+">
+		<Param name="Handle:trie"/>
+		<Param name="const String:key[]"/>
+		<Param name="const any:array[]"/>
+		<Param name="num_items"/>
+		<Param name="bool:replace=true"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="SetTrieString" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    trie        Trie Handle.
+    key         Key string.
+    value       String to store.
+    replace     If false, operation will fail if the key is already set.
+
+Return:
+    True    on success,
+    false   on failure.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Sets a string value in a Trie, either inserting a new entry or replacing an old one.
+">
+		<Param name="Handle:trie"/>
+		<Param name="const String:key[]"/>
+		<Param name="const String:value[]"/>
+		<Param name="bool:replace=true"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="SetTrieValue" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    trie        Trie Handle.
+    key         Key string.
+    value       Value to store at this key.
+    replace     If false, operation will fail if the key is already set.
+
+Return:
+    True    on success,
+    false   on failure.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Sets a value in a Trie, either inserting a new entry or replacing an old one.
+">
+		<Param name="Handle:trie"/>
+		<Param name="const String:key[]"/>
+		<Param name="any:value"/>
+		<Param name="bool:replace=true"/>
+	</Overload>
+</KeyWord>
+

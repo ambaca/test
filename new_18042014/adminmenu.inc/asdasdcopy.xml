@@ -1,0 +1,107 @@
+
+
+<KeyWord name="AddTargetsToMenu" func="yes">
+	<Overload retVal="" descr="
+Params:
+    menu            Menu Handle.
+    source_client   Source client, or 0 to ignore immunity.
+    in_game_only    True to only select in-game players.
+    alive_only      True to only select alive players.
+
+Return:
+    Number of clients added.
+
+Notes:
+    Adds targets to an admin menu.
+    Each client is displayed as: name (userid)
+    Each item contains the userid as a string for its info.
+">
+		<Param name="Handle:menu"/>
+		<Param name="source_client"/>
+		<Param name="bool:in_game_only=true"/>
+		<Param name="bool:alive_only=false"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="AddTargetsToMenu2" func="yes">
+	<Overload retVal="" descr="
+Params:
+    menu            Menu Handle.
+    source_client   Source client, or 0 to ignore immunity.
+    flags           COMMAND_FILTER flags from commandfilters.inc.
+
+Return:
+    Number of clients added.
+
+Notes:
+    Adds targets to an admin menu.
+    Each client is displayed as: name (userid)
+    Each item contains the userid as a string for its info.
+">
+		<Param name="Handle:menu"/>
+		<Param name="source_client"/>
+		<Param name="flags"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="GetAdminTopMenu" func="yes">
+	<Overload retVal="Handle:" descr="
+Return:
+    Handle to the admin menu's TopMenu,
+    or INVALID_HANDLE if not created yet.
+
+Notes:
+    Retrieves the Handle to the admin top menu.
+">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="OnAdminMenuCreated" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    topmenu     Handle to the admin menu's TopMenu.
+
+Notes:
+    Called when the admin menu is created and 3rd party plugins can grab
+    the Handle or add categories.
+">
+		<Param name="Handle:topmenu"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="OnAdminMenuReady" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    topmenu     Handle to the admin menu's TopMenu.
+
+Notes:
+    Called when the admin menu is ready to have items added.
+">
+		<Param name="Handle:topmenu"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="RedisplayAdminMenu" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    topmenu     TopMenu Handle.
+    client      Client index.
+
+Return:
+    True    on success,
+    false   on failure.
+
+Notes:
+    Re-displays the admin menu to a client after selecting an item.
+    Auto-aborts if the Handle is invalid.
+">
+		<Param name="Handle:topmenu"/>
+		<Param name="client"/>
+	</Overload>
+</KeyWord>

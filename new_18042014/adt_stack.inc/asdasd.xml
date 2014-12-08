@@ -1,0 +1,221 @@
+
+
+<KeyWord name="CreateStack" func="yes">
+	<Overload retVal="Handle:" descr="
+Params:
+    blocksize       The number of cells each entry in the stack can hold.
+                    For example, 32 cells is equivalent to: new Array[X][32]
+
+Return:
+    New stack Handle.
+
+Error:
+    Invalid Handle or invalid index.
+
+Notes:
+    Creates a stack structure.  A stack is a LIFO (last in, first out)
+    vector (array) of items.  It has O(1) insertion and O(1) removal.
+
+    Stacks have two operations: Push (adding an item) and Pop (removes
+    items in reverse-push order).
+
+    The contents of the stack are uniform; i.e. storing a string and then
+    retrieving it as an integer is NOT the same as StringToInt()!
+
+    The &quot;blocksize&quot; determines how many cells each slot has; it cannot
+    be changed after creation.
+">
+		<Param name="blocksize=1"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="IsStackEmpty" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    stack   Stack Handle.
+
+Return:
+    True    if empty,
+    false   if not empty.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Checks if a stack is empty.
+">
+		<Param name="Handle:stack"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="PopStack" func="yes">
+	<Overload retVal="" descr="
+Params:
+    stack       Stack Handle.
+
+Return:
+    True    if something was popped,
+    false   otherwise.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Pops a value off a stack, ignoring it completely.
+">
+		<Param name="Handle:stack"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="PopStackArray" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    stack       Stack Handle.
+    buffer      Buffer to store the array in.
+    size        If not set, assumes the buffer size is equal to the
+                blocksize.  Otherwise, the size passed is used.
+
+Return:
+    True    on success,
+    false   if the stack is empty.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Pops an array of cells from a stack.
+">
+		<Param name="Handle:stack"/>
+		<Param name="any:buffer[]"/>
+		<Param name="size=-1"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="PopStackCell" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    stack       Stack Handle.
+    value       Variable to store the value.
+    block       Optionally specify which block to read from
+                (useful if the blocksize > 0).
+    asChar      Optionally read as a byte instead of a cell.
+
+Return:
+    True    on success,
+    false   if the stack is empty.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Pops a cell value from a stack.
+">
+		<Param name="Handle:stack"/>
+		<Param name="&any:value"/>
+		<Param name="block=0"/>
+		<Param name="bool:asChar=false"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="PopStackString" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    stack       Stack Handle.
+    buffer      Buffer to store string.
+    maxlength   Maximum size of the buffer.
+
+Return:
+    True    on success,
+    false   if the stack is empty.
+
+Error:
+    Invalid Handle.
+
+Notes:
+    Pops a string value from a stack.
+">
+		<Param name="Handle:stack"/>
+		<Param name="String:buffer[]"/>
+		<Param name="maxlength"/>
+		<Param name="&written=0"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="PushStackArray" func="yes">
+	<Overload retVal="" descr="
+Params:
+    stack       Stack Handle.
+    values      Block of values to copy.
+    size        If not set, the number of elements copied from the array
+                will be equal to the blocksize. If set higher than the
+                blocksize, the operation will be truncated.
+
+Return:
+    noreturn
+
+Error:
+    Invalid Handle or out of memory.
+
+Notes:
+    Pushes an array of cells onto the end of a stack.  The cells
+    are pushed as a block (i.e. the entire array takes up one stack slot),
+    rather than pushing each cell individually.
+">
+		<Param name="Handle:stack"/>
+		<Param name="const any:values[]"/>
+		<Param name="size=-1"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="PushStackCell" func="yes">
+	<Overload retVal="" descr="
+Params:
+    stack   Stack Handle.
+    value   Value to push.
+
+Return:
+    noreturn
+
+Error:
+    Invalid Handle or out of memory.
+
+Notes:
+    Pushes a value onto the end of the stack, adding a new index.
+
+    This may safely be used even if the stack has a blocksize
+    greater than 1.
+">
+		<Param name="Handle:stack"/>
+		<Param name="any:value"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="PushStackString" func="yes">
+	<Overload retVal="" descr="
+Params:
+    stack   Stack Handle.
+    value   String to push.
+
+Return:
+    noreturn
+
+Error:
+    Invalid Handle or out of memory.
+
+Notes:
+    Pushes a string onto the end of a stack,
+    truncating it if it is too big.
+">
+		<Param name="Handle:stack"/>
+		<Param name="const String:value[]"/>
+	</Overload>
+</KeyWord>
+

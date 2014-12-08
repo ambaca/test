@@ -1,0 +1,603 @@
+
+
+<KeyWord name="BfGetNumBytesLeft" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Number of bytes left unread.
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Returns the number of bytes left in a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadAngle" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    bf          bf_read handle to read from.
+    numBits     Optional number of bits to use.
+
+Return:
+    Angle read.
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a bit angle from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+		<Param name="numBits=8"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadAngles" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf          bf_read handle to read from.
+    angles      Destination angle vector.
+
+Return:
+    Angle read.
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a 3D angle vector from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+		<Param name="Float:angles[3]"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadBool" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Bit value read.
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a single bit from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadByte" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Byte value read (read as 8bit).
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a byte from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadChar" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Character value read.
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a character from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadCoord" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Coordinate read.
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a character from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadEntity" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Entity index read.
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a character from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadFloat" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Floating point value read.
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a character from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadNum" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Integer value read (read as 32bit).
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a character from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadShort" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Integer value read (read as 16bit).
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a character from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadString" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf          bf_read handle to read from.
+    buffer      Destination string buffer.
+    maxlength   Maximum length of output string buffer.
+    line        If true the buffer will be copied until it reaches a '\n'
+                or a null terminator.
+
+Return:
+    Number of bytes written to the buffer.  If the bitbuffer stream overflowed,
+    that is, had no terminator before the end of the stream, then a negative
+    number will be returned equal to the number of characters written to the
+    buffer minus 1.  The buffer will be null terminated regardless of the
+    return value.
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a string from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+		<Param name="String:buffer[]"/>
+		<Param name="maxlength"/>
+		<Param name="bool:line=false"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadVecCoord" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_read handle to read from.
+    coord   Destination coordinate array.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a 3D vector of coordinates from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+		<Param name="Float:coord[3]"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadVecNormal" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_read handle to read from.
+    vec     Destination vector array.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a 3D normal vector from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+		<Param name="Float:vec[3]"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfReadWord" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_read handle to read from.
+
+Return:
+    Integer value read (read as 16bit).
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Reads a 16bit unsigned integer from a readable bitbuffer (bf_read).
+">
+		<Param name="Handle:bf"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteAngle" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf          bf_write handle to write to.
+    angle       Angle to write.
+    numBits     Optional number of bits to use.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a bit angle to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="Float:angle"/>
+		<Param name="numBits=8"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteAngles" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf          bf_write handle to write to.
+    angles      Angle vector to write.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a 3D angle vector to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="Float:angles[3]"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteBool" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_write handle to write to.
+    bit     Bit to write (true for 1, false for 0).
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a single bit to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="bool:bit"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteByte" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_write handle to write to.
+    byte    Byte to write (value will be written as 8bit).
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a byte to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="byte"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteChar" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_write handle to write to.
+    chr     Character to write.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a byte to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="chr"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteCoord" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf          bf_write handle to write to.
+    coord       Coordinate to write.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a coordinate to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="Float:coord"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteEntity" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_write handle to write to.
+    ent     Entity index to write.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes an entity to a writable bitbuffer (bf_write).
+    This is a wrapper around BfWriteShort().
+">
+		<Param name="Handle:bf"/>
+		<Param name="ent"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteFloat" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_write handle to write to.
+    num     Number to write.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a floating point number to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="Float:num"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteNum" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_write handle to write to.
+    num     Integer to write (value will be written as 32bit).
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a normal integer to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="num"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteShort" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_write handle to write to.
+    num     Integer to write (value will be written as 16bit).
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a 16bit integer to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="num"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteString" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf          bf_write handle to write to.
+    string      Text string to write.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a string to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="const String:string[]"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteVecCoord" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf          bf_write handle to write to.
+    coord       Coordinate array to write.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a 3D vector of coordinates to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="Float:coord[3]"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteVecNormal" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_write handle to write to.
+    vec     Vector to write.
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a 3D normal vector to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="Float:vec[3]"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BfWriteWord" func="yes">
+	<Overload retVal="" descr="
+Params:
+    bf      bf_write handle to write to.
+    num     Integer to write (value will be written as 16bit).
+
+Return:
+    noreturn
+
+Error:
+    Invalid or incorrect Handle.
+
+Notes:
+    Writes a 16bit unsigned integer to a writable bitbuffer (bf_write).
+">
+		<Param name="Handle:bf"/>
+		<Param name="num"/>
+	</Overload>
+</KeyWord>
+
+

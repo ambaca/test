@@ -1,0 +1,197 @@
+
+
+<KeyWord name="BanClient" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client          Client being banned.
+    time            Time (in minutes) to ban (0 = permanent).
+    flags           Flags for controlling the ban mechanism.
+                    If AUTHID is set and no AUTHID is available,
+                    the ban will fail unless AUTO is also flagged.
+    reason          Reason to ban the client for.
+    kick_message    Message to display to the user when kicking.
+    command         Command string to identify the source. If this is left empty,
+                    then the OnBanClient forward will not be called.
+    source          A source value that could be interpreted as a player
+                    index of any sort (not actually checked by Core).
+
+Return:
+    True    on success,
+    false   on failure.
+
+Error:
+    Invalid client index or client not in game.
+
+Notes:
+    Bans a client.
+">
+		<Param name="client"/>
+		<Param name="
+                 time"/>
+		<Param name="
+                 flags"/>
+		<Param name="
+                 const String:reason[]"/>
+		<Param name="
+                 const String:kick_message[]=&quot;&quot;"/>
+		<Param name="
+                 const String:command[]=&quot;&quot;"/>
+		<Param name="
+                 any:source=0"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BanIdentity" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    identity    String to ban (ip or authstring).
+    time        Time to ban for (0 = permanent).
+    flags       Flags (only IP and AUTHID are valid flags here).
+    reason      Ban reason string.
+    command     Command string to identify the source.  If this is left
+                empty, then the OnBanIdentity forward will not be called.
+    source      A source value that could be interpreted as a player
+                index of any sort (not actually checked by Core).
+
+Return:
+    True    on success,
+    false   on failure.
+
+Notes:
+    Bans an identity (either an IP address or auth string).
+">
+		<Param name="const String:identity[]"/>
+		<Param name="
+                 time"/>
+		<Param name="
+                 flags"/>
+		<Param name="
+                 const String:reason[]"/>
+		<Param name="
+                 const String:command[]=&quot;&quot;"/>
+		<Param name="
+                 any:source=0"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="OnBanClient" func="yes">
+	<Overload retVal="public Action:" descr="
+Params:
+    client          Client being banned.
+    time            Time the client is being banned for (0 = permanent).
+    flags           One if AUTHID or IP will be enabled.  If AUTO is also
+                    enabled, it means Core autodetected which to use.
+    reason          Reason passed via BanClient().
+    kick_message    Kick message passed via BanClient().
+    command         Command string to identify the ban source.
+    source          Source value passed via BanClient().
+
+Return:
+    Plugin_Handled to block the actual server banning.
+    Kicking will still occur.
+
+Notes:
+    Called for calls to BanClient() with a non-empty command.
+">
+		<Param name="client"/>
+		<Param name="
+                            time"/>
+		<Param name="
+                            flags"/>
+		<Param name="
+                            const String:reason[]"/>
+		<Param name="
+                            const String:kick_message[]"/>
+		<Param name="
+                            const String:command[]"/>
+		<Param name="
+                            any:source"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="OnBanIdentity" func="yes">
+	<Overload retVal="public Action:" descr="
+Params:
+    identity    Identity string being banned (authstring or ip).
+    time        Time the client is being banned for (0 = permanent).
+    flags       Ban flags (only IP or AUTHID are valid here).
+    reason      Reason passed via BanIdentity().
+    command     Command string to identify the ban source.
+    source      Source value passed via BanIdentity().
+
+Return:
+    Plugin_Handled to block the actual server banning.
+
+Notes:
+    Called for calls to BanIdentity() with a non-empty command.
+">
+		<Param name="const String:identity[]"/>
+		<Param name="
+                              time"/>
+		<Param name="
+                              flags"/>
+		<Param name="
+                              const String:reason[]"/>
+		<Param name="
+                              const String:command[]"/>
+		<Param name="
+                              any:source"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="OnRemoveBan" func="yes">
+	<Overload retVal="public Action:" descr="
+Params:
+    identity    Identity string being banned (authstring or ip).
+    flags       Ban flags (only IP or AUTHID are valid here).
+    command     Command string to identify the ban source.
+    source      Source value passed via BanIdentity().
+
+Return:
+    Plugin_Handled to block the actual server banning.
+
+Notes:
+    Called for calls to RemoveBan() with a non-empty command.
+">
+		<Param name="const String:identity[]"/>
+		<Param name="
+                            flags"/>
+		<Param name="
+                            const String:command[]"/>
+		<Param name="
+                            any:source"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="RemoveBan" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    identity    String to unban (ip or authstring).
+    flags       Flags (only IP and AUTHID are valid flags here).
+    command     Command string to identify the source.  If this is left
+                empty, then OnRemoveBan will not be called.
+    source      A source value that could be interpreted as a player index
+                of any sort (not actually checked by Core).
+
+Return:
+    True    on success,
+    false   on failure.
+
+Notes:
+    Removes a ban that was written to the server (either in memory or on disk).
+">
+		<Param name="const String:identity[]"/>
+		<Param name="
+                 flags"/>
+		<Param name="
+                 const String:command[]=&quot;&quot;"/>
+		<Param name="
+                 any:source=0"/>
+	</Overload>
+</KeyWord>
+

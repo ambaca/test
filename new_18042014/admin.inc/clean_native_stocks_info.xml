@@ -1,0 +1,53 @@
+
+<KeyWord name="AddAdmGroupCmdOverride(GroupId:id, const String:name[], OverrideType:type, OverrideRule:rule);" func="yes"> </KeyWord>
+<KeyWord name="AddCommandOverride(const String:cmd[], OverrideType:type, flags);" func="yes"> </KeyWord>
+<KeyWord name="AdminInheritGroup(AdminId:id, GroupId:gid);" func="yes"> </KeyWord>
+<KeyWord name="BindAdminIdentity(AdminId:id, const String:auth[], const String:ident[]);" func="yes"> </KeyWord>
+<KeyWord name="BitToFlag(bit, &AdminFlag:flag);" func="yes"> </KeyWord>
+<KeyWord name="CanAdminTarget(AdminId:admin, AdminId:target);" func="yes"> </KeyWord>
+<KeyWord name="CreateAdmGroup(const String:group_name[]);" func="yes"> </KeyWord>
+<KeyWord name="CreateAdmin(const String:name[]="");" func="yes"> </KeyWord>
+<KeyWord name="CreateAuthMethod(const String:method[]);" func="yes"> </KeyWord>
+
+
+
+<KeyWord name="DumpAdminCache(AdminCachePart:part, bool:rebuild);" func="yes"> </KeyWord>
+
+
+<KeyWord name="FindAdmGroup(const String:group_name[]);" func="yes"> </KeyWord>
+<KeyWord name="FindAdminByIdentity(const String:auth[], const String:identity[]);" func="yes"> </KeyWord>
+<KeyWord name="FindFlagByChar(c, &AdminFlag:flag);" func="yes"> </KeyWord>
+<KeyWord name="FindFlagByName(const String:name[], &AdminFlag:flag);" func="yes"> </KeyWord>
+<KeyWord name="FindFlagChar(AdminFlag:flag, &c);" func="yes"> </KeyWord>
+<KeyWord name="FlagArrayToBits(const AdminFlag:array[], numFlags);" func="yes"> </KeyWord>
+<KeyWord name="FlagBitArrayToBits(const bool:array[], maxSize);" func="yes"> </KeyWord>
+<KeyWord name="FlagBitsToArray(bits, AdminFlag:array[], maxSize);" func="yes"> </KeyWord>
+<KeyWord name="FlagBitsToBitArray(bits, bool:array[], maxSize);" func="yes"> </KeyWord>
+<KeyWord name="FlagToBit(AdminFlag:flag);" func="yes"> </KeyWord>
+<KeyWord name="GetAdmGroupAddFlag(GroupId:id, AdminFlag:flag);" func="yes"> </KeyWord>
+<KeyWord name="GetAdmGroupAddFlags(GroupId:id);" func="yes"> </KeyWord>
+<KeyWord name="GetAdmGroupCmdOverride(GroupId:id, const String:name[], OverrideType:type, &OverrideRule:rule);" func="yes"> </KeyWord>
+<KeyWord name="GetAdmGroupImmuneCount(GroupId:id);" func="yes"> </KeyWord>
+<KeyWord name="GetAdmGroupImmuneFrom(GroupId:id, number);" func="yes"> </KeyWord>
+<KeyWord name="GetAdmGroupImmunity(GroupId:id, ImmunityType:type);" func="yes"> </KeyWord>
+<KeyWord name="GetAdmGroupImmunityLevel(GroupId:gid);" func="yes"> </KeyWord>
+<KeyWord name="GetAdminFlag(AdminId:id, AdminFlag:flag, AdmAccessMode:mode=Access_Effective);" func="yes"> </KeyWord>
+<KeyWord name="GetAdminFlags(AdminId:id, AdmAccessMode:mode);" func="yes"> </KeyWord>
+<KeyWord name="GetAdminGroup(AdminId:id, index, const String:name[], maxlength);" func="yes"> </KeyWord>
+<KeyWord name="GetAdminGroupCount(AdminId:id);" func="yes"> </KeyWord>
+<KeyWord name="GetAdminImmunityLevel(AdminId:id);" func="yes"> </KeyWord>
+<KeyWord name="GetAdminPassword(AdminId:id, String:buffer[]="", maxlength=0);" func="yes"> </KeyWord>
+<KeyWord name="GetAdminUsername(AdminId:id, String:name[], maxlength);" func="yes"> </KeyWord>
+<KeyWord name="GetCommandOverride(const String:cmd[], OverrideType:type, &flags);" func="yes"> </KeyWord>
+<KeyWord name="ReadFlagString(const String:flags[], &numchars=0);" func="yes"> </KeyWord>
+<KeyWord name="RegisterAuthIdentType(const String:name[]);" func="yes"> </KeyWord>
+<KeyWord name="RemoveAdmin(AdminId:id);" func="yes"> </KeyWord>
+<KeyWord name="SetAdmGroupAddFlag(GroupId:id, AdminFlag:flag, bool:enabled);" func="yes"> </KeyWord>
+<KeyWord name="SetAdmGroupImmuneFrom(GroupId:id, GroupId:other_id);" func="yes"> </KeyWord>
+<KeyWord name="SetAdmGroupImmunity(GroupId:id, ImmunityType:type, bool:enabled);" func="yes"> </KeyWord>
+<KeyWord name="SetAdmGroupImmunityLevel(GroupId:gid, level);" func="yes"> </KeyWord>
+<KeyWord name="SetAdminFlag(AdminId:id, AdminFlag:flag, bool:enabled);" func="yes"> </KeyWord>
+<KeyWord name="SetAdminImmunityLevel(AdminId:id, level);" func="yes"> </KeyWord>
+<KeyWord name="SetAdminPassword(AdminId:id, const String:password[]);" func="yes"> </KeyWord>
+<KeyWord name="UnsetCommandOverride(const String:cmd[], OverrideType:type);" func="yes"> </KeyWord>
+

@@ -1,0 +1,123 @@
+
+
+<KeyWord name="AddMultiTargetFilter" func="yes">
+	<Overload retVal="" descr="
+Params:
+    pattern         Pattern to match (case sensitive).
+    filter          Filter function.
+    phrase          Descriptive phrase to display on successful match.
+    phraseIsML      True if phrase is multi-langual, false otherwise.
+
+Return:
+    noreturn
+
+Notes:
+    Adds a multi-target filter function for ProcessTargetString().
+">
+		<Param name="const String:pattern[]"/>
+		<Param name="MultiTargetFilter:filter"/>
+		<Param name="
+                            const String:phrase[]"/>
+		<Param name="bool:phraseIsML"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="MultiTargetFilter" func="yes">
+	<Overload retVal="public bool:" descr="
+Params:
+    pattern     Pattern name.
+    clients     Array to fill with unique, valid client indexes.
+
+Return:
+    True    if pattern was recognized,
+    false   otherwise.
+
+Notes:
+    Adds clients to a multi-target filter.
+">
+		<Param name="const String:pattern[]"/>
+		<Param name="Handle:clients"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="ProcessTargetString" func="yes">
+	<Overload retVal="" descr="
+Params:
+    pattern         Pattern to find clients against.
+    admin           Admin performing the action, or 0 if the server.
+    targets         Array to hold targets.
+    max_targets     Maximum size of the targets array.
+    filter_flags    Filter flags.
+    target_name     Buffer to store the target name.
+    tn_maxlength    Maximum length of the target name buffer.
+    tn_is_ml        OUTPUT: Will be true if the target name buffer is an ML phrase,
+                    false if it is a normal string.
+
+Return:
+    If a multi-target pattern was used, the number of clients found
+    is returned.  If a single-target pattern was used, 1 is returned
+    if one valid client is found.  Otherwise, a COMMAND_TARGET reason
+    for failure is returned.
+
+Notes:
+    Processes a generic command target string, and resolves it to a list
+    of clients or one client, based on filtering rules and a pattern.
+
+    Note that you should use LoadTranslations(&quot;common.phrases&quot;) in OnPluginStart(),
+    as that file is guaranteed to contain all of the translatable phrases that
+    ProcessTargetString() will return.
+">
+		<Param name="const String:pattern[]"/>
+		<Param name="
+                      admin"/>
+		<Param name="
+                      targets[]"/>
+		<Param name="
+                      max_targets"/>
+		<Param name="
+                      filter_flags"/>
+		<Param name="
+                      String:target_name[]"/>
+		<Param name="
+                      tn_maxlength"/>
+		<Param name="
+                      &bool:tn_is_ml"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="RemoveMultiTargetFilter" func="yes">
+	<Overload retVal="" descr="
+Params:
+    pattern       Pattern to match (case sensitive).
+    filter        Filter function.
+
+Return:
+    noreturn
+
+Notes:
+    Removes a multi-target filter function from ProcessTargetString().
+">
+		<Param name="const String:pattern[]"/>
+		<Param name="MultiTargetFilter:filter"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="ReplyToTargetError" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Client index, or 0 for server.
+    reason      COMMAND_TARGET reason.
+
+Return:
+    noreturn
+
+Notes:
+    Replies to a client with a given message describing a targetting
+    failure reason.
+
+    Note: The translation phrases are found in common.phrases.txt.
+">
+		<Param name="client"/>
+		<Param name="reason"/>
+	</Overload>
+</KeyWord>

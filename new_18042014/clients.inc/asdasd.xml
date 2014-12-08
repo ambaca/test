@@ -1,0 +1,1338 @@
+
+
+<KeyWord name="AddUserFlags" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    ...         Flags to set on the client.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, or client not connected.
+
+Notes:
+    Sets access flags on a client.  If the client is not an admin,
+    a temporary, anonymous AdminId is given.
+">
+		<Param name="client"/>
+		<Param name="AdminFlag:..."/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="CanUserTarget" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player's index.
+    target      Target player's index.
+
+Return:
+    True    if target is targettable by the player,
+    false   otherwise.
+
+Error:
+    Invalid or unconnected player indexers.
+
+Notes:
+    Returns whether a user can target another user.
+    This is a helper function for CanAdminTarget.
+">
+		<Param name="client"/>
+		<Param name="target"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="ChangeClientTeam" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Client index.
+    team        Mod-specific team index.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, client not connected,
+    or lack of mod support.
+
+Notes:
+    Changes a client's team through the mod's generic team changing function.
+    On CS:S, this will kill the player.
+">
+		<Param name="client"/>
+		<Param name="team"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="CreateFakeClient" func="yes">
+	<Overload retVal="" descr="
+Params:
+    name    Name to use.
+
+Return:
+    Client index on success,
+    0 otherwise.
+
+Notes:
+    Creates a fake client.
+">
+		<Param name="const String:name[]"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientAbsAngles" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    ang         Destination vector to store the client's position angle.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index,
+    client not in game, or no mod support.
+
+Notes:
+    Returns the client's position angle.
+">
+		<Param name="client"/>
+		<Param name="Float:ang[3]"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientAbsOrigin" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    vec         Destination vector to store the client's origin vector.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index,
+    client not in game, or no mod support.
+
+Notes:
+    Returns the client's origin vector.
+">
+		<Param name="client"/>
+		<Param name="Float:vec[3]"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientArmor" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+
+Return:
+    Armor value.
+
+Error:
+    Invalid client index,
+    client not in game, or no mod support.
+
+Notes:
+    Returns the client's armor.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientAuthString" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index.
+    auth        Buffer to store the client's auth string.
+    maxlen      Maximum length of string buffer (includes NULL terminator).
+    validate    Check backend validation status.
+                DO NOT PASS FALSE UNLESS YOU UNDERSTAND THE CONSEQUENCES,
+                You WILL KNOW if you need to use this, MOST WILL NOT.
+
+Return:
+    True    on success,
+    false   otherwise.
+
+Error:
+    If the client is not connected or the index is invalid.
+
+Notes:
+    Retrieves a client's authentication string (SteamID).
+">
+		<Param name="client"/>
+		<Param name="String:auth[]"/>
+		<Param name="maxlen"/>
+		<Param name="bool:validate=true"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientAvgChoke" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    client      Player's index.
+    flow        Traffic flowing direction.
+
+Return:
+    Average packet loss,
+    or -1 if network info is not available.
+
+Error:
+    Invalid client index, client not in game, or fake client.
+
+Notes:
+    Returns the client's average packet choke, values go from 0 to 1 (for percentages).
+">
+		<Param name="client"/>
+		<Param name="NetFlow:flow"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientAvgData" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    client      Player's index.
+    flow        Traffic flowing direction.
+
+Return:
+    Data flow.
+
+Error:
+    Invalid client index, client not in game, or fake client.
+
+Notes:
+    Returns the client's data flow in bytes/sec.
+">
+		<Param name="client"/>
+		<Param name="NetFlow:flow"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientAvgLatency" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    client      Player's index.
+    flow        Traffic flowing direction.
+
+Return:
+    Latency,
+    or -1 if network info is not available.
+
+Error:
+    Invalid client index, client not in game, or fake client.
+
+Notes:
+    Returns the client's average packet latency in seconds.
+">
+		<Param name="client"/>
+		<Param name="NetFlow:flow"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientAvgLoss" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    client      Player's index.
+    flow        Traffic flowing direction.
+
+Return:
+    Average packet loss,
+    or -1 if network info is not available.
+
+Error:
+    Invalid client index, client not in game, or fake client.
+
+Notes:
+    Returns the client's average packet loss,
+    values go from 0 to 1 (for percentages).
+">
+		<Param name="client"/>
+		<Param name="NetFlow:flow"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientAvgPackets" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    client      Player's index.
+    flow        Traffic flowing direction.
+
+Return:
+    Packet frequency.
+
+Error:
+    Invalid client index, client not in game, or fake client.
+
+Notes:
+    Returns the client's average packet frequency in packets/sec.
+">
+		<Param name="client"/>
+		<Param name="NetFlow:flow"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientCount" func="yes">
+	<Overload retVal="" descr="
+Params:
+    inGameOnly      If false connecting players are also counted.
+
+Return:
+    Client count in the server.
+
+Notes:
+    Returns the client count put in the server.
+">
+		<Param name="bool:inGameOnly=true"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientDataRate" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+
+Return:
+    Data rate.
+
+Error:
+    Invalid client index, client not in game, or fake client.
+
+Notes:
+    Returns the client's send data rate in bytes/sec.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientDeaths" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+
+Return:
+    Death count.
+
+Error:
+    Invalid client index, client not in game, or no mod support.
+
+Notes:
+    Returns the client's death count.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientFrags" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+
+Return:
+    Frag count.
+
+Error:
+    Invalid client index, client not in game, or no mod support.
+
+Notes:
+    Returns the client's frag count.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientFromSerial" func="yes">
+	<Overload retVal="" descr="
+Params:
+    serial      Serial number.
+
+Return:
+    Client index,
+    or 0 for invalid serial.
+
+Notes:
+    Returns the client index by its serial number.
+">
+		<Param name="serial"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientHealth" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+
+Return:
+    Health value.
+
+Error:
+    Invalid client index, client not in game, or no mod support.
+
+Notes:
+    Returns the client's health.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientIP" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index.
+    ip          Buffer to store the client's ip address.
+    maxlen      Maximum length of string buffer (includes NULL terminator).
+    remport     Remove client's port from the ip string (true by default).
+
+Return:
+    True    on success,
+    false   otherwise.
+
+Error:
+    If the client is not connected or the index is invalid.
+
+Notes:
+    Retrieves a client's IP address.
+">
+		<Param name="client"/>
+		<Param name="String:ip[]"/>
+		<Param name="maxlen"/>
+		<Param name="bool:remport=true"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientInfo" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player's index.
+    key         Key string.
+    value       Buffer to store value.
+    maxlen      Maximum length of valve (UTF-8 safe).
+
+Return:
+    True    on success,
+    false   otherwise.
+
+Error:
+    Invalid client index, or client not connected.
+
+Notes:
+    Retrieves values from client replicated keys.
+">
+		<Param name="client"/>
+		<Param name="const String:key[]"/>
+		<Param name="String:value[]"/>
+		<Param name="maxlen"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientLatency" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    client      Player's index.
+    flow        Traffic flowing direction.
+
+Return:
+    Latency,
+    or -1 if network info is not available.
+
+Error:
+    Invalid client index, client not in game, or fake client.
+
+Notes:
+    Returns the client's current latency (RTT),
+    more accurate than GetAvgLatency but jittering.
+">
+		<Param name="client"/>
+		<Param name="NetFlow:flow"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientMaxs" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    vec         Destination vector to store the client's max size.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, client not in game, or no mod support.
+
+Notes:
+    Returns the client's max size vector.
+">
+		<Param name="client"/>
+		<Param name="Float:vec[3]"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientMins" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    vec         Destination vector to store the client's min size.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, client not in game, or no mod support.
+
+Notes:
+    Returns the client's min size vector.
+">
+		<Param name="client"/>
+		<Param name="Float:vec[3]"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientModel" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    model       Buffer to store the client's model name.
+    maxlen      Maximum length of string buffer (includes NULL terminator).
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, client not in game, or no mod support.
+
+Notes:
+    Returns the client's model name.
+">
+		<Param name="client"/>
+		<Param name="String:model[]"/>
+		<Param name="maxlen"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientName" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index.
+    name        Buffer to store the client's name.
+    maxlen      Maximum length of string buffer (includes NULL terminator).
+
+Return:
+    True    on success,
+    false   otherwise.
+
+Error:
+    If the client is not connected an error will be thrown.
+
+Notes:
+    Returns the client's name.
+">
+		<Param name="client"/>
+		<Param name="String:name[]"/>
+		<Param name="maxlen"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientOfUserId" func="yes">
+	<Overload retVal="" descr="
+Params:
+    userid      Userid value.
+
+Return:
+    Client value.
+    Returns 0 if invalid userid.
+
+Notes:
+    Translates an userid index to the real player index.
+">
+		<Param name="userid"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientSerial" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Client index.
+
+Return:
+    Serial number.
+
+Notes:
+    Returns the clients unique serial identifier.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientTeam" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+
+Return:
+    Team index the client is on (mod specific).
+
+Error:
+    Invalid client index, client not in game, or no mod support.
+
+Notes:
+    Retrieves a client's team index.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientTime" func="yes">
+	<Overload retVal="Float:" descr="
+Params:
+    client      Player's index.
+
+Return:
+    Connection time.
+
+Error:
+    Invalid client index, client not in game, or fake client.
+
+Notes:
+    Returns the client's connection time in seconds.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientUserId" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player index.
+
+Return:
+    User id of the client.
+
+Error:
+    If the client is not connected or the index is invalid.
+
+Notes:
+    Retrieves a client's user id,
+    which is an index incremented for every client that joins the server.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetClientWeapon" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    weapon      Buffer to store the client's weapon name.
+    maxlen      Maximum length of string buffer (includes NULL terminator).
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, client not in game, or no mod support.
+
+Notes:
+    Returns the client's weapon name.
+">
+		<Param name="client"/>
+		<Param name="String:weapon[]"/>
+		<Param name="maxlen"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetMaxClients" func="yes">
+	<Overload retVal="" descr="
+Return:
+    Maximum number of clients allowed.
+
+Notes:
+    This function will be deprecated in a future release.  Use the MaxClients variable instead.
+
+    Returns the maximum number of clients allowed on the server.  This may
+    return 0 if called before OnMapStart(), and thus should not be called
+    in OnPluginStart().
+
+    You should not globally cache the value to GetMaxClients() because it can change from
+    SourceTV or TF2's arena mode.  Use the &quot;MaxClients&quot; dynamic variable documented at the
+    top of this file.
+">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetMaxHumanPlayers" func="yes">
+	<Overload retVal="" descr="
+Return:
+    Maximum number of humans allowed.
+
+Notes:
+    Returns the maximum number of human players allowed on the server.  This is
+    a game-specific function used on newer games to limit the number of humans
+    that can join a game and can be lower than MaxClients. It is the number often
+    reflected in the server browser or when viewing the output of the status command.
+    On unsupported games or modes without overrides, it will return the same value
+    as MaxClients.
+
+    You should not globally cache the value to GetMaxHumanPlayers() because it can change across
+    game modes. You may still cache it locally.
+">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetSteamAccountID" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Client Index.
+    validate    Check backend validation status.
+                DO NOT PASS FALSE UNLESS YOU UNDERSTAND THE CONSEQUENCES,
+                You WILL KNOW if you need to use this, MOST WILL NOT.
+
+Return:
+    Steam account ID
+    or 0 if not available.
+
+Error:
+    If the client is not connected or the index is invalid.
+
+Notes:
+    Returns the client's Steam account ID.
+">
+		<Param name="client"/>
+		<Param name="bool:validate=true"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetUserAdmin" func="yes">
+	<Overload retVal="AdminId:" descr="
+Params:
+    client      Player's index.
+
+Return:
+    AdminId of the client,
+    or INVALID_ADMIN_ID if none.
+
+Error:
+    Invalid client index, or client not connected.
+
+Notes:
+    Retrieves a client's AdminId.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="GetUserFlagBits" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+
+Return:
+    Flags
+
+Error:
+    Invalid client index, or client not connected.
+
+Notes:
+    Returns client access flags.  If the client is not an admin,
+    the result is always 0.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsClientAuthorized" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player's index.
+
+Return:
+    True    if player has been authenticated,
+    false   otherwise.
+
+Notes:
+    Returns if a certain player has been authenticated.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsClientConnected" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player's index.
+
+Return:
+    True    if player is connected to the server,
+    false   otherwise.
+
+Notes:
+    Returns if a certain player is connected.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsClientInGame" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index (index does not have to be connected).
+
+Return:
+    True    if player has entered the game,
+    false   otherwise.
+
+Error:
+    Invalid client index.
+
+Notes:
+    Returns if a certain player has entered the game.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsClientInKickQueue" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index (must be connected).
+
+Return:
+    True    if in the kick queue,
+    false   otherwise.
+
+Error:
+    Invalid client index.
+
+Notes:
+    Returns if a client is in the &quot;kick queue&quot; (i.e. the client will be kicked
+    shortly and thus they should not appear as valid).
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsClientObserver" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index.
+
+Return:
+    True    if player is an obverser,
+    false   otherwise.
+
+Notes:
+    Returns if a certain player is an observer/spectator.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsClientReplay" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index.
+
+Return:
+    True    if player is the Replay bot,
+    false   otherwise.
+
+Notes:
+    Returns if a certain player is the Replay bot.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsClientSourceTV" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index.
+
+Return:
+    True    if player is the SourceTV bot,
+    false   otherwise.
+
+Notes:
+    Returns if a certain player is the SourceTV bot.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsClientTimingOut" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index.
+
+Return:
+    True    if client is timing out,
+    false   otherwise.
+
+Error:
+    Invalid client index, client not in game, or fake client.
+
+Notes:
+    Returns if a client is timing out
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsFakeClient" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index.
+
+Return:
+    True    if client is a fake client,
+    false   otherwise.
+
+Notes:
+    Returns if a certain player is a fake client.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsPlayerAlive" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Player index.
+
+Return:
+    True    if the client is alive,
+    false   otherwise.
+
+Error:
+    Invalid client index, client not in game, or no mod support.
+
+Notes:
+    Returns if the client is alive or dead.
+    Note: This function was originally in SDKTools and was moved to core.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="IsPlayerInGame" func="yes">
+	<Overload retVal="bool:" descr="
+Deprecated:
+    Renamed to IsClientInGame
+
+Notes:
+    Backwards compatibility stock - use IsClientInGame
+    Use IsClientInGame() instead
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="KickClient" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Client index.
+    format      Optional formatting rules for disconnect reason.
+                Note that a period is automatically
+                appended to the string by the engine.
+    ...         Variable number of format parameters.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, or client not connected.
+
+Notes:
+    Disconnects a client from the server as soon as the next frame starts.
+
+    Note: Originally, KickClient() was immediate.  The delay was introduced
+    because despite warnings, plugins were using it in ways that would crash.
+    The new safe version can break cases that rely on immediate disconnects,
+    but ensures that plugins do not accidentally cause crashes.
+
+    If you need immediate disconnects, use KickClientEx().
+
+    Note: IsClientInKickQueue() will return true before the kick occurs.
+">
+		<Param name="client"/>
+		<Param name="const String:format[]=&quot;&quot;"/>
+		<Param name="any:..."/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="KickClientEx" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Client index.
+    format      Optional formatting rules for disconnect reason.
+                Note that a period is automatically
+                appended to the string by the engine.
+    ...         Variable number of format parameters.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, or client not connected.
+
+Notes:
+    Immediately disconnects a client from the server.
+
+    Kicking clients from certain events or callbacks may cause crashes.  If in
+    doubt, create a short (0.1 second) timer to kick the client in the next
+    available frame.
+">
+		<Param name="client"/>
+		<Param name="const String:format[]=&quot;&quot;"/>
+		<Param name="any:..."/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="NotifyPostAdminCheck" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Client index.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index or client not in-game AND authorized.
+
+Notes:
+    Signals that a player has completed post-connection admin checks.
+    Has no effect if the player has already had this event signalled.
+
+    Note: This must be sent even if no admin id was assigned.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientAuthorized" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+    auth        Client auth string.
+
+Return:
+    noreturn
+
+Notes:
+    Called when a client receives a Steam ID.  The state of a client's
+    authorization as an admin is not guaranteed here.  Use
+    OnClientPostAdminCheck() if you need a client's admin status.
+
+    This is called by bots, but the ID will be &quot;BOT&quot;.
+">
+		<Param name="client"/>
+		<Param name="const String:auth[]"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientCommand" func="yes">
+	<Overload retVal="public Action:" descr="
+Params:
+    client      Client index.
+    args        Number of arguments.
+
+Return:
+    noreturn
+
+Notes:
+    Called when a client is sending a command.
+    As of SourceMod 1.3, the client is guaranteed to be in-game.
+    Use command listeners (console.inc) for more advanced hooks.
+">
+		<Param name="client"/>
+		<Param name="args"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientConnect" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Client index.
+    rejectmsg   Buffer to store the rejection message when the connection is refused.
+    maxlen      Maximum number of characters for rejection buffer.
+
+Return:
+    True    to validate client's connection,
+    false   to refuse it.
+
+Notes:
+    Called on client connection.  If you return true, the client will be allowed in the server.
+    If you return false (or return nothing), the client will be rejected.  If the client is
+    rejected by this forward or any other, OnClientDisconnect will not be called.
+
+    Note: Do not write to rejectmsg if you plan on returning true.  If multiple plugins write
+    to the string buffer, it is not defined which plugin's string will be shown to the client,
+    but it is guaranteed one of them will.
+">
+		<Param name="client"/>
+		<Param name="String:rejectmsg[]"/>
+		<Param name="maxlen"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientConnected" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+
+Return:
+    noreturn
+
+Notes:
+    Called once a client successfully connects.
+    This callback is paired with OnClientDisconnect.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientDisconnect" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+
+Return:
+    noreturn
+
+Notes:
+    Called when a client is disconnecting from the server.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientDisconnect_Post" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+
+Return:
+    noreturn
+
+Notes:
+    Called when a client is disconnected from the server.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientPostAdminCheck" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+
+Return:
+    noreturn
+
+Notes:
+    Called once a client is authorized and fully in-game, and
+    after all post-connection authorizations have been performed.
+
+    This callback is gauranteed to occur on all clients, and always
+    after each OnClientPutInServer() call.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientPostAdminFilter" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+
+Return:
+    noreturn
+
+Notes:
+    Called directly before OnClientPostAdminCheck() as a method to
+    alter administrative permissions before plugins perform final
+    post-connect operations.
+
+    In general, do not use this function unless you are specifically
+    attempting to change access permissions.  Use OnClientPostAdminCheck()
+    instead if you simply want to perform post-connect authorization
+    routines.
+
+    See OnClientPostAdminCheck() for more information.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientPreAdminCheck" func="yes">
+	<Overload retVal="public Action:" descr="
+Params:
+    client      Client index.
+
+Return:
+    Plugin_Handled to block admin checks.
+
+Notes:
+    Called once a client is authorized and fully in-game, but
+    before admin checks are done.  This can be used to override
+    the default admin checks for a client.  You should only use
+    this for overriding; use OnClientPostAdminCheck() instead
+    if you want notification.
+
+    Note: If handled/blocked, PostAdminCheck must be signalled
+    manually via NotifyPostAdminCheck().
+
+    This callback is gauranteed to occur on all clients, and always
+    after each OnClientPutInServer() call.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientPutInServer" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+
+Return:
+    noreturn
+
+Notes:
+    Called when a client is entering the game.
+
+    Whether a client has a steamid is undefined until OnClientAuthorized
+    is called, which may occur either before or after OnClientPutInServer.
+    Similarly, use OnClientPostAdminCheck() if you need to verify whether
+    connecting players are admins.
+
+    GetClientCount() will include clients as they are passed through this
+    function, as clients are already in game at this point.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="OnClientSettingsChanged" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+
+Return:
+    noreturn
+
+Notes:
+    Called whenever the client's settings are changed.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="RemoveUserFlags" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    ...         Flags to remove from the client.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, or client not connected.
+
+Notes:
+    Removes flags from a client.
+    If the client is not an admin, this has no effect.
+">
+		<Param name="client"/>
+		<Param name="AdminFlag:..."/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="RunAdminCacheChecks" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Client index.
+
+Return:
+    True    if access was changed,
+    false   if it did not.
+
+Error:
+    Invalid client index or client not in-game AND authorized.
+
+Notes:
+    Runs through the Core-defined admin authorization checks on a player.
+    Has no effect if the player is already an admin.
+
+    Note: This function is based on the internal cache only.
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="SetFakeClientConVar" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Client index.
+    cvar        ConVar name.
+    value       ConVar value.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, client not connected,
+    or client not a fake client.
+
+Notes:
+    Sets a convar value on a fake client.
+">
+		<Param name="client"/>
+		<Param name="const String:cvar[]"/>
+		<Param name="const String:value[]"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="SetUserAdmin" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    id          AdminId to set.  INVALID_ADMIN_ID removes admin permissions.
+    temp        True if the id should be freed on disconnect.
+
+Return:
+    noreturn
+
+Error:
+    Invalid client index, client not connected,
+    or bogus AdminId.
+
+Notes:
+    Sets a client's AdminId.
+">
+		<Param name="client"/>
+		<Param name="AdminId:id"/>
+		<Param name="bool:temp=false"/>
+	</Overload>
+</KeyWord>
+
+<KeyWord name="SetUserFlagBits" func="yes">
+	<Overload retVal="" descr="
+Params:
+    client      Player's index.
+    flags       Bitstring of flags to set on client.
+
+Return:
+    noreturn
+
+Notes:
+    Sets access flags on a client using bits instead of flags.
+    If the client is not an admin, and flags not 0, a temporary,
+    anonymous AdminId is given.
+">
+		<Param name="client"/>
+		<Param name="flags"/>
+	</Overload>
+</KeyWord>

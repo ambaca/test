@@ -1,0 +1,462 @@
+
+
+<KeyWord name="AddCommandListener" func="yes">
+    <Overload retVal="bool:" descr="
+Params:
+    callback        Callback.
+    command         Command, or if not specified, a global listener.
+                    The command is case insensitive.
+
+Return:
+    True if this feature is available on the current game,
+    false otherwise.
+
+Notes:
+    Adds a callback that will fire when a command is sent to the server.
+
+    Registering commands is designed to create a new command as part of the UI,
+    whereas this is a lightweight hook on a command string, existing or not.
+    Using Reg*Cmd to intercept is in poor practice, as it physically creates a
+    new command and can slow down dispatch in general.
+
+    To see if this feature is available, use FeatureType_Capability and
+    FEATURECAP_COMMANDLISTENER.
+">
+        <Param name="CommandListener:callback"/>
+        <Param name="const String:command[]=&quot;&quot;"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="AddServerTag" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="const String:tag[]"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="CheckAccess" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="CheckCommandAccess" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ClientCommand" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="CommandListener" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ConCmd" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ConVarChanged" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="CreateConVar" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="FakeClientCommand" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="FakeClientCommandEx" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="FindConVar" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="FindFirstConCommand" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="FindNextConCommand" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="FormatActivitySource" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetCmdArg" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetCmdArgString" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetCmdArgs" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetCmdReplySource" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetCommandFlags" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetCommandIterator" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetConVarBool" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetConVarBounds" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetConVarDefault" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetConVarFlags" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetConVarFloat" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetConVarInt" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetConVarName" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="GetConVarString" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="HookConVarChange" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="InsertServerCommand" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="IsChatTrigger" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="IsValidConVarChar" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="OnClientSayCommand" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="OnClientSayCommand_Post" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="PrintToConsole" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="PrintToServer" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="QueryClientConVar" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ReadCommandIterator" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="RegAdminCmd" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="RegConsoleCmd" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="RegServerCmd" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="RemoveCommandListener" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="RemoveServerTag" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ReplyToCommand" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ResetConVar" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SendConVarValue" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ServerCommand" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ServerCommandEx" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ServerExecute" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SetCmdReplySource" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SetCommandFlags" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SetConVarBool" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SetConVarBounds" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SetConVarFlags" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SetConVarFloat" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SetConVarInt" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SetConVarString" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ShowActivity" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ShowActivity2" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="ShowActivityEx" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="SrvCmd" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>
+
+
+<KeyWord name="UnhookConVarChange" func="yes">
+    <Overload retVal="" descr="desc">
+        <Param name="client"/>
+    </Overload>
+</KeyWord>

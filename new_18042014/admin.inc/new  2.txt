@@ -1,0 +1,11 @@
+SetAdmGroupImmunity
+GetAdmGroupImmunity
+IsPlayerInGame
+SQL_ConnectEx
+GetEntDataEnt
+SetEntDataEnt
+GuessSDKVersion
+IsValidHandle
+SearchForClients
+LoadMaps
+PbReadRepeatedInt

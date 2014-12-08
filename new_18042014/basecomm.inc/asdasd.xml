@@ -1,0 +1,104 @@
+
+
+<KeyWord name="BaseComm_IsClientGagged" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client  Client index.
+
+Return:
+    True    if client is gagged,
+    false   otherwise.
+
+Notes:
+    Returns whether or not a client is gagged
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BaseComm_IsClientMuted" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client  Client index.
+
+Return:
+    True    if client is muted,
+    false   otherwise.
+
+Notes:
+    Returns whether or not a client is muted
+">
+		<Param name="client"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BaseComm_OnClientGag" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+    gagState    True if client was gaged, false otherwise
+
+Notes:
+    Called when a client is gagged or ungagged
+">
+		<Param name="client"/>
+		<Param name="bool:gagState"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BaseComm_OnClientMute" func="yes">
+	<Overload retVal="public" descr="
+Params:
+    client      Client index.
+    muteState   True if client was muted, false otherwise
+
+Notes:
+    Called when a client is muted or unmuted
+">
+		<Param name="client"/>
+		<Param name="bool:muteState"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BaseComm_SetClientGag" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Client index.
+    gagState    True to gag client, false to ungag.
+
+Return:
+    True    if this caused a change in gag state,
+    false   otherwise.
+
+Notes:
+    Sets a client's gag state
+">
+		<Param name="client"/>
+		<Param name="bool:gagState"/>
+	</Overload>
+</KeyWord>
+
+
+<KeyWord name="BaseComm_SetClientMute" func="yes">
+	<Overload retVal="bool:" descr="
+Params:
+    client      Client index.
+    muteState   True to mute client, false to unmute.
+
+Return:
+    True    if this caused a change in mute state,
+    false   otherwise.
+
+Notes:
+    Sets a client's mute state
+">
+		<Param name="client"/>
+		<Param name="bool:muteState"/>
+	</Overload>
+</KeyWord>
+
+
