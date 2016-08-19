@@ -1,0 +1,27 @@
+<html>
+<meta charset=utf-8>
+<head>
+
+<style>
+body
+{
+	background-color: grey;
+}
+</style>
+
+</head>
+
+<body>
+
+Pääkone nopeus <span id="output" style="background-color:white">XXX</span><br>
+<input id="input" type="range" min="150" max="600" step="1" oninput="showVal()" onchange="showVal()" />
+
+<script>
+window.onload = showVal();
+
+function showVal() {
+    document.getElementById('output').innerHTML = document.getElementById('input').value;
+}
+</script>
+</body>
+</html>
